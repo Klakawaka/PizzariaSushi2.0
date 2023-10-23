@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace PizzeriaSushi2._0.Pages;//TEST
+namespace PizzeriaSushi2._0.Pages;
 
 public class IndexModel : PageModel
 {
@@ -21,3 +21,7 @@ public class IndexModel : PageModel
 
 
 
+
+
+
+     

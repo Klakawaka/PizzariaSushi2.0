@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace PizzeriaSushi2._0.Pages;//TEST
@@ -14,7 +15,9 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-
     }
 }
+
+
+
 

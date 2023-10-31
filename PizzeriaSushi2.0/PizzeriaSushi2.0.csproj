@@ -7,4 +7,7 @@
     <RootNamespace>PizzeriaSushi2._0</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Pages\EmptyHtmlFile.cshtml" />
+  </ItemGroup>
 </Project>

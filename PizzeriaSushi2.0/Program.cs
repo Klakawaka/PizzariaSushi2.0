@@ -3,9 +3,9 @@ using Microsoft.Extensions.Configuration;
 using PizzeriaSushi2._0.Database;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var connetionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<Database>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            options.UseMySql(connetionString, ServerVersion.AutoDetect(connetionString)));
 
 using (var scope = builder.Services.BuildServiceProvider().CreateScope())
 {

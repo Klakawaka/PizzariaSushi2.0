@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using PizzeriaSushi2._0.Models;
 
 namespace PizzeriaSushi2._0.Database
@@ -22,7 +23,9 @@ namespace PizzeriaSushi2._0.Database
             var configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            var connetionString = configuration.GetConnectionString("DefaultConnection");
+
+            optionsBuilder.UseMySql(connetionString, ServerVersion.AutoDetect(connetionString));
         }
 
     }

@@ -1,5 +1,6 @@
 @page
-@model AddModel
+@model PizzeriaSushi2._0.Pages.AddModel
+@using PizzeriaSushi2._0.Enums
 @{
     ViewData["Title"] = "ADD SOMETHING";
 }
@@ -7,19 +8,23 @@
 
 <form method="post">
     <div>
-        <label asp-for="InputText"></label>
-        <input asp-for="InputText" />
+        <label asp-for="ItemName"></label>
+        <input asp-for="ItemName" class="form-control" />
     </div>
-    <button type="submit">Submit</button>
+    <div>
+        <label asp-for="ItemDescription"></label>
+        <textarea asp-for="ItemDescription" class="form-control"></textarea>
+    </div>
+    <div>
+        <label asp-for="ItemPrice"></label>
+        <input asp-for="ItemPrice" type="number" step="0.01" class="form-control" />
+    </div>
+   
+    <div>
+        <label asp-for="ItemFoodCategory"></label>
+        <select asp-for="ItemFoodCategory" asp-items="Html.GetEnumSelectList<FoodCategory>()" class="form-control">
+            <option value="">Select Food Category</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
-@if (Model.SubmittedValues.Count > 0)
-{
-    <h3>Submitted Values:</h3>
-    <ul>
-        @foreach (var value in Model.SubmittedValues)
-        {
-            <li>@value</li>
-        }
-    </ul>
-}

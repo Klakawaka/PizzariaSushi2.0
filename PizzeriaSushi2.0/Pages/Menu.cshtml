@@ -10,29 +10,32 @@
 
     <body>
         <div class="container">
-            <div class="menu">
-                <h2 class="menu-group-heading">
-                    Popular
-                </h2>
-                <div class="menu-group">
-                @foreach (var item in Model.MenuItems)
-                {
-                        <div class="menu-item">
-                            <img class="menu-item-image"
-                                src="https://www.valdemarsro.dk/wp-content/2011/05/pizza-margharita-1.jpg" alt="@item.Name">
-                            <div class="menu-item-text">
-                                <h3 class="menu-item-heading">
-                                    <span class="menu-item-name">@item.Name</span>
-                                    <span class="menu-item-price">@item.Price?.ToString("F1") KR</span>
-                                </h3>
-                                <p class="menu-item-description">
-                                @item.Description
-                                </p>
+            @foreach (var categoryGroup in Model.MenuItems.GroupBy(item => item.FoodCategory))
+            {
+                <div class="menu">
+                    <h2 class="menu-group-heading">
+                        @categoryGroup.Key <!-- Display the category name as the heading -->
+                    </h2>
+                    <div class="menu-group">
+                        @foreach (var item in categoryGroup)
+                        {
+                            <div class="menu-item">
+                                <img class="menu-item-image"
+                                    src="https://www.valdemarsro.dk/wp-content/2011/05/pizza-margharita-1.jpg" alt="@item.Name">
+                                <div class="menu-item-text">
+                                    <h3 class="menu-item-heading">
+                                        <span class="menu-item-name">@item.Name</span>
+                                        <span class="menu-item-price">@item.Price?.ToString("F1") KR</span>
+                                    </h3>
+                                    <p class="menu-item-description">
+                                        @item.Description
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                }
+                        }
+                    </div>
                 </div>
-            </div>
+            }
         </div>
     </body>
 @* @page

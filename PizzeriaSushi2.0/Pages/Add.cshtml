@@ -1,0 +1,25 @@
+@page
+@model AddModel
+@{
+    ViewData["Title"] = "ADD SOMETHING";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div>
+        <label asp-for="InputText"></label>
+        <input asp-for="InputText" />
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+@if (Model.SubmittedValues.Count > 0)
+{
+    <h3>Submitted Values:</h3>
+    <ul>
+        @foreach (var value in Model.SubmittedValues)
+        {
+            <li>@value</li>
+        }
+    </ul>
+}
